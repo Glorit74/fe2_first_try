@@ -217,6 +217,7 @@ h1 {
 }
 
 .cards_container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,9 +231,7 @@ h1 {
   position: relative;
   top: 80px;
   margin: auto;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  padding: 0 100px;
 }
 
 @media (min-width: 1000px) {
@@ -241,17 +240,24 @@ h1 {
     display: grid;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
+    gap: 60px;
   }
 }
 
-.cards_container {
-  position: relative;
-  max-width: 1200px;
-  min-width: 400px;
+.card_container {
+  width: 400px;
+}
+
+@media (min-width: 1000px) {
+  .card_container {
+    max-width: 1200px;
+    min-width: 500px;
+  }
 }
 
 .card {
   position: relative;
+  min-width: 100%;
   margin: 30px;
   background-color: #145434;
   color: #ffeedf;
@@ -259,11 +265,20 @@ h1 {
   padding: 40px;
 }
 
+@media (min-width: 1000px) {
+  .card {
+    margin: 0;
+  }
+}
+
 .card .title {
   font-size: 36px;
   padding-bottom: 50px;
   margin-bottom: 10px;
-  width: 100%;
+  max-width: 100%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   border-bottom: 1px solid #ffeedf;
 }
 
@@ -306,8 +321,9 @@ h1 {
 }
 
 .card button .icon {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  position: relative;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
 }
 
 .number {
@@ -324,5 +340,12 @@ h1 {
   color: #145434;
   border: 3px solid #145434;
   text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .number {
+    top: 16px;
+    left: -16px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

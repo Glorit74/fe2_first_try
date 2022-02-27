@@ -9,8 +9,8 @@ function Card({ data }) {
       <div className="suv">{data.sub}</div>
       <div className="text">{data.text}</div>
       <button>
-        <div>details</div>
-        <div className="icon>">
+        <div className="details">details</div>
+        <div className="icon">
           <ArrowForwardIcon />
         </div>
       </button>

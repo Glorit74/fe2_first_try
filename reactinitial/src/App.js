@@ -84,15 +84,15 @@ const App = () => {
   ];
   return (
     <div>
-      <h1>Series Api</h1>
+      {/* <h1>Series Api</h1>
       <LoadingMask isLoading={isLoading} />
       {characters.map((d, i) => (
         <div key={i}>
           <Character data={d} isLoading={isLoading} />
         </div>
       ))}
-      <Subscription isSubscribe={isSubscribe} setIsSubscribe={setIsSubscribe} />
-      {/* <div className="header">
+      <Subscription isSubscribe={isSubscribe} setIsSubscribe={setIsSubscribe} /> */}
+      <div className="header">
         <div className="logo">Best Beers</div>
         <div className="menu">
           <MenuIcon />
@@ -101,13 +101,13 @@ const App = () => {
       <div className="cards_container">
         {data.map((d, i) => (
           <div className="card_container">
-            <div key={i + 1} className="number">
-              {i}
+            <div key={i} className="number">
+              {i + 1}
             </div>
             <Card data={d} />
           </div>
         ))}
-      </div>*/}
+      </div>
     </div>
   );
 };

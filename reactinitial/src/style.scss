@@ -164,41 +164,48 @@ $desktop: 1000px;
 }
 
 .cards_container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   top: 80px;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 0 100px;
 
   @include desktop {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 60px;
   }
 }
+.card_container {
+  width: 400px;
 
-.cards_container {
-  position: relative;
-  max-width: 1200px;
-  min-width: 400px;
+  @include desktop {
+    max-width: 1200px;
+    min-width: 500px;
+  }
 }
-
 .card {
   position: relative;
-
+  min-width: 100%;
   margin: 30px;
   background-color: $secondary;
   color: $primary;
   text-align: left;
   padding: 40px;
 
+  @include desktop {
+    margin: 0;
+  }
+
   .title {
     font-size: 36px;
     padding-bottom: 50px;
     margin-bottom: 10px;
-    width: 100%;
+    max-width: 100%;
+    min-width: fit-content;
     border-bottom: 1px solid $primary;
   }
   .sub,
@@ -231,7 +238,8 @@ $desktop: 1000px;
       color: $primary;
     }
     .icon {
-      align-self: flex-end;
+      position: relative;
+      transform: translateX(50px);
     }
   }
 }
@@ -250,4 +258,9 @@ $desktop: 1000px;
   color: $secondary;
   border: 3px solid $secondary;
   text-align: center;
+
+  @include desktop {
+    top: 16px;
+    left: -16px;
+  }
 }
