@@ -337,9 +337,15 @@ $desktop: 950px;
   .title {
     width: 100%;
     font-size: 36px;
-    padding-bottom: 30px;
-    border-bottom: 2px solid $primary;
-    margin-bottom: 5px;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $primary;
+      margin: 30px auto 5px;
+    }
   }
 
   .sub,

@@ -309,9 +309,15 @@ body {
 .card .title {
   width: 100%;
   font-size: 36px;
-  padding-bottom: 30px;
-  border-bottom: 2px solid #ffeedf;
-  margin-bottom: 5px;
+}
+
+.card .title::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #ffeedf;
+  margin: 30px auto 5px;
 }
 
 .card .sub,
