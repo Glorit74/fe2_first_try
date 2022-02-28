@@ -1,5 +1,4 @@
 import React from 'react';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Card({ data }) {
   return (
@@ -8,12 +7,6 @@ function Card({ data }) {
 
       <div className="suv">{data.sub}</div>
       <div className="text">{data.text}</div>
-      <button>
-        <div className="details">details</div>
-        <div className="icon">
-          <ArrowForwardIcon />
-        </div>
-      </button>
     </div>
   );
 }

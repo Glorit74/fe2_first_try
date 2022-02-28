@@ -139,10 +139,125 @@ h1 {
 
 $primary: #ffeedf;
 $secondary: #145434;
-$desktop: 1000px;
+
+// .cards_container {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   position: relative;
+//   top: 80px;
+//   margin: auto;
+//   padding: 0 100px;
+
+//   @include desktop {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//     gap: 60px;
+//   }
+// }
+// .card_container {
+//   width: 400px;
+
+//   @include desktop {
+//     max-width: 1200px;
+//     min-width: 500px;
+//   }
+// }
+// .card {
+//   position: relative;
+//   min-width: 100%;
+//   margin: 30px;
+//   background-color: $secondary;
+//   color: $primary;
+//   text-align: left;
+//   padding: 40px;
+
+//   @include desktop {
+//     margin: 0;
+//   }
+
+//   .title {
+//     font-size: 36px;
+//     padding-bottom: 50px;
+//     margin-bottom: 10px;
+//     max-width: 100%;
+//     min-width: fit-content;
+//     border-bottom: 1px solid $primary;
+//   }
+//   .sub,
+//   .text {
+//     font-size: 18px;
+//     margin: 5px 0px;
+//   }
+//   .text {
+//     font-weight: 500;
+//     padding-bottom: 30px;
+//   }
+//   button {
+//     position: absolute;
+//     bottom: -10px;
+//     right: -10px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     width: 200px;
+//     height: 50px;
+//     font-size: 14px;
+//     background-color: $primary;
+//     color: $secondary;
+//     border: 3px solid $secondary;
+
+//     &:hover {
+//       background-color: $secondary;
+//       border: 3px solid $primary;
+//       color: $primary;
+//     }
+//     .icon {
+//       position: relative;
+//       transform: translateX(50px);
+//     }
+//   }
+// }
+
+// .number {
+//   position: relative;
+//   left: 15px;
+//   top: 50px;
+//   padding-top: 4px;
+//   z-index: 10;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 90%;
+//   font-size: 24px;
+//   background-color: $primary;
+//   color: $secondary;
+//   border: 3px solid $secondary;
+//   text-align: center;
+
+//   @include desktop {
+//     top: 16px;
+//     left: -16px;
+//   }
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: $primary;
+}
+
+$narrow: 460px;
+$desktop: 950px;
 
 @mixin desktop {
   @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin narrow {
+  @media (min-width: #{$narrow}) {
     @content;
   }
 }
@@ -160,107 +275,112 @@ $desktop: 1000px;
   font-size: 36px;
   color: $secondary;
   background-color: $primary;
-  border-bottom: 3px solid $secondary;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  .MuiSvgIcon-root {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .cards_container {
   position: relative;
+  top: 80px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: 80px;
-  margin: auto;
-  padding: 0 100px;
+  margin: 0 auto;
+  flex: 0 1 auto;
+  width: 100%;
 
   @include desktop {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
-}
-.card_container {
-  width: 400px;
-
-  @include desktop {
-    max-width: 1200px;
-    min-width: 500px;
-  }
-}
-.card {
-  position: relative;
-  min-width: 100%;
-  margin: 30px;
-  background-color: $secondary;
-  color: $primary;
-  text-align: left;
-  padding: 40px;
-
-  @include desktop {
-    margin: 0;
-  }
-
-  .title {
-    font-size: 36px;
-    padding-bottom: 50px;
-    margin-bottom: 10px;
-    max-width: 100%;
-    min-width: fit-content;
-    border-bottom: 1px solid $primary;
-  }
-  .sub,
-  .text {
-    font-size: 18px;
-    margin: 5px 0px;
-  }
-  .text {
-    font-weight: 500;
-    padding-bottom: 30px;
-  }
-  button {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    display: flex;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-
-    width: 200px;
-    height: 50px;
-    font-size: 14px;
-    background-color: $primary;
-    color: $secondary;
-    border: 3px solid $secondary;
-
-    &:hover {
-      background-color: $secondary;
-      border: 3px solid $primary;
-      color: $primary;
-    }
-    .icon {
-      position: relative;
-      transform: translateX(50px);
-    }
   }
 }
 
 .number {
   position: relative;
-  left: 15px;
-  top: 50px;
-  padding-top: 4px;
-  z-index: 10;
+  top: -22px;
+  right: 22px;
   width: 40px;
   height: 40px;
   border-radius: 90%;
+  border: 2px solid $secondary;
+  background-color: $primary;
+  color: $secondary;
   font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_container {
+  position: relative;
+  width: 90%;
+
+  background-color: $secondary;
+  color: $primary;
+  margin: 30px auto;
+
+  @include narrow {
+    width: 400px;
+  }
+
+  @include desktop {
+    width: 400px;
+    margin: 30px;
+  }
+}
+.card {
+  padding: 10px 30px 50px;
+
+  .title {
+    width: 100%;
+    font-size: 36px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $primary;
+    margin-bottom: 5px;
+  }
+
+  .sub,
+  .text {
+    font-size: 18px;
+  }
+
+  .text {
+    font-weight: 600;
+  }
+}
+
+button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -20px;
+  bottom: -20px;
+  width: 200px;
+  height: 50px;
   background-color: $primary;
   color: $secondary;
   border: 3px solid $secondary;
-  text-align: center;
 
-  @include desktop {
-    top: 16px;
-    left: -16px;
+  &:hover {
+    background-color: $secondary;
+    color: $primary;
+    border: 3px solid $primary;
+  }
+  .div {
+    display: inline-block;
+    font-size: 14px;
+  }
+  .icon {
+    position: absolute;
+    right: 5px;
+
+    .MuiSvgIcon-root {
+      width: 36px;
+      height: 36px;
+    }
   }
 }

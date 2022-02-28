@@ -7,6 +7,7 @@ import Subscription from './components/Subscription';
 import Card from './components/Card';
 import MenuIcon from '@mui/icons-material/Menu';
 import axios from 'axios';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,15 +21,23 @@ const App = () => {
   //     setCharacters(response.data);
   //     console.log(characters);
   //   };
+  async function load() {
+    const response = await fetch(
+      'https://seriescharacters.com/api/howimetyourmother'
+    );
+    const data = await response.json();
+    setIsLoading(false);
+    setCharacters(data);
+  }
 
-  useEffect(() => {
-    fetch('https://seriescharacters.com/api/howimetyourmother')
-      .then((response) => response.json())
-      .then((json) => setCharacters(json));
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 5 * 1000);
-  }, []);
+  //   useEffect(() => {
+  //     fetch('https://seriescharacters.com/api/howimetyourmother')
+  //       .then((response) => response.json())
+  //       .then((json) => setCharacters(json));
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 5 * 1000);
+  //   }, []);
 
   const data = [
     {
@@ -94,9 +103,8 @@ const App = () => {
       <Subscription isSubscribe={isSubscribe} setIsSubscribe={setIsSubscribe} /> */}
       <div className="header">
         <div className="logo">Best Beers</div>
-        <div className="menu">
-          <MenuIcon />
-        </div>
+
+        <MenuIcon />
       </div>
       <div className="cards_container">
         {data.map((d, i) => (
@@ -105,6 +113,12 @@ const App = () => {
               {i + 1}
             </div>
             <Card data={d} />
+            <button>
+              <div className="details">details</div>
+              <div className="icon">
+                <ArrowForwardIcon />
+              </div>
+            </button>
           </div>
         ))}
       </div>
