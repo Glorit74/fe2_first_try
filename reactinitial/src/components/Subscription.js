@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { TextField } from '@mui/material';
 
 function Subscription({ isSubscribe, setIsSubscribe }) {
   const [email, setEmail] = useState('');
@@ -47,8 +48,8 @@ function Subscription({ isSubscribe, setIsSubscribe }) {
           <h1>Subscribe to our newsletter</h1>
           {isSubscribe && (
             <div className="subscribe_container">
-              <input
-                className={errorMsg ? 'input error' : 'input'}
+              <TextField
+                error={errorMsg}
                 type="email"
                 placeholder="name@mail.com"
                 value={email.replace(/[>#&{}<;:?'"+!%/=()]/, '')}

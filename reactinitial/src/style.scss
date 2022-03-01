@@ -31,7 +31,7 @@ h1 {
     text-align: center;
     padding-top: 20px;
     border: 1px solid purple;
-    animation: loading 6s linear;
+    animation: loading 2s linear;
   }
 }
 .none {
@@ -72,7 +72,7 @@ h1 {
   border: 1px saddlebrown solid;
   padding: 20px;
   margin: 20px 0px;
-  min-height: 90px;
+  min-height: 120px;
   max-height: 90px;
   width: 70%;
 
@@ -81,6 +81,7 @@ h1 {
     left: 20px;
     top: 60px;
     width: 100px;
+    height: 50px;
     padding: 5px;
     border-radius: 15px;
   }
@@ -93,27 +94,31 @@ h1 {
   margin: 30px;
   text-align: center;
 
-  .input {
-    width: 300px;
-    height: calc(1em + 20px);
-    text-indent: 10px;
-    border: 2px solid black;
-    border-radius: 20px;
-    margin-right: 20px;
-    font-size: 1em;
-    &::placeholder {
-      color: rgba(63, 78, 78, 0.5);
-    }
-    &:focus {
-      border: 2px solid rgb(36, 12, 168);
-    }
+  //   .input {
+  //     width: 300px;
+  //     height: calc(1em + 20px);
+  //     text-indent: 10px;
+  //     border: 2px solid black;
+  //     border-radius: 20px;
+  //     margin-right: 20px;
+  //     font-size: 1em;
+  //     &::placeholder {
+  //       color: rgba(63, 78, 78, 0.5);
+  //     }
+  //     &:focus {
+  //       border: 2px solid rgb(36, 12, 168);
+  //     }
+  //   }
+  //   .error {
+  //     border: 2px solid red;
+  //     &:active {
+  //       border: 2px solid red;
+  //     }
+  //   }
+  .MuiOutlinedInput-input {
+    width: 400px;
   }
-  .error {
-    border: 2px solid red;
-    &:active {
-      border: 2px solid red;
-    }
-  }
+
   .button {
     width: 100px;
     height: calc(1em + 20px);

@@ -22,13 +22,18 @@ const App = () => {
   //     console.log(characters);
   //   };
   async function load() {
+    setIsLoading(true);
     const response = await fetch(
       'https://seriescharacters.com/api/howimetyourmother'
     );
     const data = await response.json();
-    setIsLoading(false);
     setCharacters(data);
+    setIsLoading(false);
   }
+
+  useEffect(() => {
+    load();
+  }, []);
 
   //   useEffect(() => {
   //     fetch('https://seriescharacters.com/api/howimetyourmother')
@@ -93,14 +98,14 @@ const App = () => {
   ];
   return (
     <div>
-      {/* <h1>Series Api</h1>
-      <LoadingMask isLoading={isLoading} />
+      <h1>Series Api</h1>
+      {isLoading && <LoadingMask />}
       {characters.map((d, i) => (
         <div key={i}>
           <Character data={d} isLoading={isLoading} />
         </div>
       ))}
-      <Subscription isSubscribe={isSubscribe} setIsSubscribe={setIsSubscribe} /> */}
+      <Subscription isSubscribe={isSubscribe} setIsSubscribe={setIsSubscribe} />
       <div className="header">
         <div className="logo">Best Beers</div>
 
